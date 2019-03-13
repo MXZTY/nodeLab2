@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    article.photo
+        div
+            img(src=`/static/travel-images/${imageData.filename}.jpg`)
+        div
+            h1= imageData.title
+            h2= imageData.city, imageData.country
+            h2= imageData.user.firstname, imageData.user.lastname
+            p= imageData.description

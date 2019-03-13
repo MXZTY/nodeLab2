@@ -1,13 +1,24 @@
-require('dotenv').config();
-console.log(process.env.MONGO_URL);
+require('./handlers/dataConnector.js').connect();
 
-const mongoose = require('mongoose');
+const express = require('express');
+const parser = require('body-parser');
 
-mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
+//create an express app
+const app = express();
+//get the data model:
+const Book = require('./models/Book');
 
-const db = mongoose.connection;
+//tell node to use json and HTTP header features in body-parser
+app.use(parser.json());
+app.use(parser.urlencoded({extended: true}));
 
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', function callback() {
-    console.log("NOW connected to Mongo");
+const bookRouter = require('./handlers/bookRouter.js');
+bookRouter.handleAllBooks(app, Book);
+bookRouter.handleSingleBook(app, Book);
+bookRouter.handleBooksByPageRange(app, Book);
+bookRouter.handleAllCategories(app, Book);
+
+let port = 8080;
+app.listen(port, function() {
+    console.log("server is running at port = " + port);
 });
