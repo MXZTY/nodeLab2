@@ -7,7 +7,18 @@ html
         header 
             h2 Photo Site 
         main.photo
-        section.pagecontent
-            block content
+            section.sidebar
+                nav
+                    ul
+                        li
+                            h1 Menu 
+                        li
+                            a(href='/') All Photos
+                        li 
+                            a(href='/travel') Countries
+                        li 
+                            a(href='/about') About
+            section.pagecontent
+                block content
         footer
             p &copy 2020

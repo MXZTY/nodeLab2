@@ -25,6 +25,9 @@ imageRouter.handleImagesFromSingleCity(app, Image);
 imageRouter.handleImagesFromSingleCountry(app, Image);
 imageRouter.handlePageIndex(app, Image);
 imageRouter.handleCountryList(app, Image);
+imageRouter.showImagesFromSingleCountry(app, Image);
+imageRouter.showSingleImage(app, Image);
+imageRouter.handleAbout(app, Image);
 
 let port = 8080;
 app.listen(port, function(){

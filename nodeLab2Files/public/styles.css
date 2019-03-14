@@ -129,7 +129,9 @@ main.book {
 
 /* travel/photo formatting */
 main.photo {
-   display: block;   
+   display: grid; 
+   grid-column-gap: 5px;
+   grid-template-columns: 200px auto;     
 }
 
 .photolist {   

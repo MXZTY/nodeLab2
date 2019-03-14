@@ -3,9 +3,9 @@ extends layout
 block content
     article.photo
         div
-            img(src=`/static/travel-images/${imageData.filename}.jpg`)
-        div
-            h1= imageData.title
-            h2= imageData.city, imageData.country
-            h2= imageData.user.firstname, imageData.user.lastname
-            p= imageData.description
+            img(src=`/travel-images/${imageData.filename}` width=`300px` height=`auto`)
+    div
+        h1= imageData.title
+        h3= imageData.location.city + ", " + imageData.location.country
+        h3= imageData.user.firstname + ", " + imageData.user.lastname
+        p #{imageData.description}

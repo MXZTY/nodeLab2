@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    h1 Countries With Photos
+    .photolist
+        each country in photos
+            a(href=`/travel/photo/${country.id}`)
+               img(src=`/travel-images/${country.filename}` width='100')
+
+

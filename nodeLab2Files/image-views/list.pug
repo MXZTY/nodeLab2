@@ -2,11 +2,8 @@ extends layout.pug
 
 block content
     h1 Countries With Photos
-    .photolist
+    ul.photos
+        article.photo
         each country in countryList
-            div 
-                a(href=`/travel/photos/${country._id}`) #{country._id} [#{country.count}]
-
-
-
-//- img(src=`/travel-images/${image.filename}.jpg` width='100')
+                li 
+                    a(href=`/travel/photos/${country._id}`) #{country._id} [#{country.count}]

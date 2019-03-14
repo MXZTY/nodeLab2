@@ -3,3 +3,8 @@ extends layout.pug
 block content 
     h1 Home Page 
     p More content here in the future
+    .photolist
+        each image in imageList
+            div 
+                a(href=`/travel/photo/${image.id}`)
+                    img(src=`/travel-images/${image.filename}` width='100')
